@@ -202,7 +202,7 @@ date="$(date +%d%m%Y-%I%M)"
 tag="$(git branch | sed 's/*\ //g')"
 rm -rf KernelSU
 git clone https://github.com/itsshashanksp/KernelSU.git
-dir drivers
+rm drivers/kernelsu
 mkdir -p ./drivers/kernelsu
 cp -ar ./KernelSU/* ./drivers/kernelsu/
 echo "branch/tag: $tag"
