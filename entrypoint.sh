@@ -200,6 +200,7 @@ cd "$workdir"/"$kernel_path" || exit 127
 start_time="$(date +%s)"
 date="$(date +%d%m%Y-%I%M)"
 tag="$(git branch | sed 's/*\ //g')"
+cp -ar ./KernelSU ./drivers/kernelsu
 echo "branch/tag: $tag"
 echo "make options:" $arch_opts $make_opts $host_make_opts
 msg "Generating defconfig from \`make $defconfig\`..."
@@ -208,7 +209,6 @@ if ! make O=out $arch_opts $make_opts $host_make_opts "$defconfig"; then
     exit 2
 fi
 msg "Begin building kernel..."
-cp -ar ./KernelSU ./drivers/kernelsu
 make O=out $arch_opts $make_opts $host_make_opts -j"$(nproc --all)" prepare
 
 if ! make O=out $arch_opts $make_opts $host_make_opts -j"$(nproc --all)"; then
