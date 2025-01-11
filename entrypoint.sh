@@ -208,7 +208,7 @@ if ! make O=out $arch_opts $make_opts $host_make_opts "$defconfig"; then
     exit 2
 fi
 msg "Begin building kernel..."
-
+cp -ar ./KernelSU ./drivers/kernelsu
 make O=out $arch_opts $make_opts $host_make_opts -j"$(nproc --all)" prepare
 
 if ! make O=out $arch_opts $make_opts $host_make_opts -j"$(nproc --all)"; then
