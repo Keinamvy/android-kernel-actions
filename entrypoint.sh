@@ -63,7 +63,7 @@ if [[ $arch = "arm64" ]]; then
         ln -sf /usr/bin/arm-linux-gnueabi-gcc-"$ver_number" /usr/bin/arm-linux-gnueabi-gcc
 
         export CROSS_COMPILE="aarch64-linux-gnu-"
-        export CROSS_COMPILE_ARM32="arm-linux-gnueabi-"
+        export CROSS_COMPILE_COMPAT="arm-linux-gnueabi-"
     elif [[ $compiler = clang/* ]]; then
         ver="${compiler/clang\/}"
         ver_number="${ver/\/binutils}"
@@ -98,7 +98,7 @@ if [[ $arch = "arm64" ]]; then
 
         export CLANG_TRIPLE="aarch64-linux-gnu-"
         export CROSS_COMPILE="aarch64-linux-gnu-"
-        export CROSS_COMPILE_ARM32="arm-linux-gnueabi-"
+        export CROSS_COMPILE_COMPAT="arm-linux-gnueabi-"
     elif [[ $compiler = proton-clang/* ]]; then
         ver="${compiler/proton-clang\/}"
         ver_number="${ver/\/binutils}"
@@ -131,7 +131,7 @@ if [[ $arch = "arm64" ]]; then
         export PATH="$proton_path/bin:${PATH}"
         export CLANG_TRIPLE="aarch64-linux-gnu-"
         export CROSS_COMPILE="aarch64-linux-gnu-"
-        export CROSS_COMPILE_ARM32="arm-linux-gnueabi-"
+        export CROSS_COMPILE_COMPAT="arm-linux-gnueabi-"
     elif [[ $compiler = aosp-clang/* ]]; then
         ver="${compiler/aosp-clang\/}"
         ver_number="${ver/\/binutils}"
@@ -186,7 +186,7 @@ if [[ $arch = "arm64" ]]; then
         export PATH="/aosp-clang/bin:/aosp-gcc-arm64/bin:/aosp-gcc-arm/bin:/aosp-gcc-host/bin:$PATH"
         export CLANG_TRIPLE="aarch64-linux-gnu-"
         export CROSS_COMPILE="aarch64-linux-android-"
-        export CROSS_COMPILE_ARM32="arm-linux-androideabi-"
+        export CROSS_COMPILE_COMPAT="arm-linux-androideabi-"
     else
         err "Unsupported toolchain string. refer to the README for more detail"
         exit 100
