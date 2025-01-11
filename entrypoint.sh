@@ -199,7 +199,7 @@ fi
 cd "$workdir"/"$kernel_path" || exit 127
 start_time="$(date +%s)"
 date="$(date +%d%m%Y-%I%M)"
-tag="$(git branch | sed 's/*\ //g')
+tag="$(git branch | sed 's/*\ //g')"
 mkdir -p ./drivers/kernelsu
 cp -ar ./KernelSU/* ./drivers/kernelsu/
 echo "branch/tag: $tag"
