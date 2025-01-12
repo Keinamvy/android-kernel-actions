@@ -201,10 +201,13 @@ start_time="$(date +%s)"
 date="$(date +%d%m%Y-%I%M)"
 tag="$(git branch | sed 's/*\ //g')"
 rm -rf KernelSU
-git clone https://github.com/itsshashanksp/KernelSU.git
 rm drivers/kernelsu
+git clone https://github.com/tiann/KernelSU.git
+cd KernelSU
+git checkout b766b98513b5a7eb33bc1c4a76b5702bf1288f07
+cd ../
 mkdir -p ./drivers/kernelsu
-cp -ar ./KernelSU/* ./drivers/kernelsu/
+cp -ar ./KernelSU/kernel/* ./drivers/kernelsu/
 echo "branch/tag: $tag"
 echo "make options:" $arch_opts $make_opts $host_make_opts
 msg "Generating defconfig from \`make $defconfig\`..."
