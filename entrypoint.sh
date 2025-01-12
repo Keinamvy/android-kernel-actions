@@ -220,6 +220,7 @@ msg "Packaging the kernel..."
 zip_filename="${name}-${tag}-${date}.zip"
 if [[ -e "$workdir"/"$zipper_path" ]]; then
     cp out/arch/"$arch"/boot/"$image" "$workdir"/"$zipper_path"/"$image"
+    dir out/arch/"$arch"/boot/
     cd "$workdir"/"$zipper_path" || exit 127
     rm -rf .git
     zip -r9 "$zip_filename" . -x .gitignore README.md || exit 127
